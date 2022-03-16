@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: #f3f3f3;
+  color: #444444;
+}
+.first-section {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+nav {
+    
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+
+  padding: 1.5rem 2rem;
+}
+.fixed-nav{
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    
+    z-index: 10;
+}
+nav header {
+  flex-basis: 45%;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+nav a {
+  color: #444444;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav > p {
+  background-image: linear-gradient(45deg, #52b788, #82c598);
+  border-radius: 1rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+nav > p:hover {
+  background-image: linear-gradient(45deg, #4e9e78, #52b788);
+}
+.reception {
+  position: relative;
+  width: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  margin: 0 auto;
+}
+
+.reception .reception-text-area h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+.p1 {
+  display: inline-block;
+  position: absolute;
+
+  left: 9.3rem;
+  background-image: linear-gradient(135deg, #b4e58b, #72c7a5);
+  width: 10.6rem;
+  height: 3.5rem;
+  opacity: 1;
+  transform: skewX(-15deg);
+  z-index: -1;
+}
+.p2 {
+  display: inline-block;
+  position: absolute;
+  top: 7.5rem;
+  left: 1.6rem;
+  background-image: linear-gradient(135deg, #b4e58b, #72c7a5);
+  width: 14.1rem;
+  height: 3.5rem;
+  opacity: 0.9;
+  transform: skewX(-15deg);
+  z-index: -1;
+}
+.reception .reception-text-area p {
+  font-size: 1.2rem;
+  padding-top: 1.2rem;
+}
+.reception .reception-text-area a {
+  display: inline-block;
+  font-size: 1rem;
+  padding-top: 2rem;
+  color: #0eb61c;
+}
+.reception .reception-img-area {
+  position: relative;
+  width: 30rem;
+}
+.reception .reception-img-area img {
+  position: relative;
+  width: 100%;
+}
+.line{
+
+  height: 1px;
+  background-color: #b9b9b98e;
+  opacity: 0;
+  margin-top: 5rem;
+  transition: all 1s;
+}
+.second-section {
+    position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  margin: auto;
+
+  opacity: 0;
+  
+  transition: all 1s;
+}
+
+.second-section header {
+  color: #0eb61c;
+  font-size: 1rem;
+  padding: 3rem 5rem 1rem;
+  font-weight: bolder;
+}
+.second-section .psecond {
+  padding: 0rem 5rem 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.box {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "image cercle"
+    "image titre"
+    "image texte";
+  grid-template-rows: 1fr 0.3fr 1.3fr;
+  grid-template-columns: 1.2fr 1fr;
+  column-gap: 4rem;
+}
+.box img {
+  position: relative;
+  width: 100%;
+}
+.box :nth-child(1) {
+  grid-area: image;
+  padding: 1rem;
+}
+.box :nth-child(2) {
+  grid-area: cercle;
+  margin-top: 2rem;
+}
+.box :nth-child(3) {
+  grid-area: titre;
+}
+.box :nth-child(4) {
+  grid-area: texte;
+  margin-right: 1rem;
+  text-align: justify;
+}
+.cercle {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+  background-color: #82c598;
+}
+.grow {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "cercle image"
+    "titre image"
+    "texte image ";
+  grid-template-rows: 1fr 0.3fr 1.3fr;
+  grid-template-columns: 1fr 1.2fr;
+}
+.grow :nth-child(2) {
+  margin-left: 1rem;
+}
+.grow :nth-child(3) {
+  margin-left: 1rem;
+}
+.grow :nth-child(4) {
+  margin-left: 1rem;
+  margin-right: 0rem;
+}
+.visible {
+  opacity: 1;
+  margin-top: 0;
+}
+@media (max-width: 1600px) {
+  html {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1400px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1100px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1000px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 850px) {
+  html {
+    font-size: 12px;
+  }
+}
