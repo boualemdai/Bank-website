@@ -18,7 +18,6 @@ body {
   justify-content: flex-start;
 }
 nav {
-    
   display: flex;
   align-items: center;
   width: 100%;
@@ -26,11 +25,11 @@ nav {
 
   padding: 1.5rem 2rem;
 }
-.fixed-nav{
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.9);
-    
-    z-index: 10;
+.fixed-nav {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  z-index: 10;
 }
 nav header {
   flex-basis: 45%;
@@ -60,7 +59,7 @@ nav > p:hover {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .reception .reception-text-area h1 {
@@ -109,33 +108,34 @@ nav > p:hover {
   position: relative;
   width: 100%;
 }
-.line{
-
+.line {
   height: 1px;
   background-color: #b9b9b98e;
   opacity: 0;
   margin-top: 5rem;
   transition: all 1s;
 }
-.second-section {
-    position: relative;
+.second-section,
+.third-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 50rem;
   margin: auto;
 
   opacity: 0;
-  
+
   transition: all 1s;
 }
 
-.second-section header {
+.second-section header,
+.third-section header {
   color: #0eb61c;
   font-size: 1rem;
   padding: 3rem 5rem 1rem;
   font-weight: bolder;
 }
-.second-section .psecond {
+.subtitle {
   padding: 0rem 5rem 1rem;
   font-size: 2rem;
   font-weight: bold;
@@ -201,6 +201,75 @@ nav > p:hover {
   opacity: 1;
   margin-top: 0;
 }
+.options {
+  display: grid;
+  position: relative;
+  margin: 4rem 0;
+  grid-template-areas:
+    "a b c"
+    "d d d";
+}
+.btn {
+  transform: translateY(50%);
+  margin: 0 2rem 0 0;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  font-family: "Roboto", sans-serif;
+  color: #292929;
+}
+
+.transfer {
+  transform: translateY(25%);
+  grid-area: a;
+  background-color: #ffbb00;
+  padding: 1rem;
+  margin: 0 2rem;
+}
+.loan {
+  grid-area: b;
+  background-color: #4bbb7d;
+  padding: 1rem;
+}
+.close {
+  grid-area: c;
+  background-color: #fd424b;
+}
+.description {
+  grid-area: d;
+  background-color: white;
+  padding: 5rem 3rem 2rem;
+  border-radius: 0.5rem;
+  height: 18rem;
+  display: grid;
+  grid-template-areas:
+    "f g"
+    "f h";
+  column-gap: 4rem;
+}
+.cir {
+  grid-area: f;
+  background-color: #ffbb00;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: #fd424b;
+  opacity: 0.3;
+}
+.description > h3 {
+  margin-bottom: 1rem;
+  grid-area: g;
+}
+.description > p {
+  grid-area: h;
+}
+.hid {
+  display: none;
+}
+
 @media (max-width: 1600px) {
   html {
     font-size: 22px;
