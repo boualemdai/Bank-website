@@ -65,56 +65,74 @@ firstSection.addEventListener("click", (e) => {
   }
 });
 
-
 // sections observer
 
-
-function sectionsObs(section,line){
-  const sectionObserver=new IntersectionObserver(([entry])=>{
-    if(entry.isIntersecting){
+function sectionsObs(section, line) {
+  const sectionObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
       section.classList.add("visible");
       line.classList.add("visible");
+      sectionObserver.unobserve(section);
+    },
+    {
+      root: null,
+      threshold: 0.1,
     }
-  },{
-  root:null,
-  threshold:0.1,
-  })
-  sectionObserver.observe(section)
+  );
+  sectionObserver.observe(section);
+}
+sectionsObs(secondSection, line1);
+sectionsObs(thirdSection, line2);
+sectionsObs(fourthSection, line3);
+sectionsObs(fifthSection, line4);
+
+const imageObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) return
+      entry.target.src=entry.target.dataset.src
+      entry.target.addEventListener("load",()=>{
+        entry.target.classList.add("clear-img");
+      imageObserver.unobserve(entry.target);
+      }) 
+    
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin:"300px"
   }
-sectionsObs(secondSection,line1)
-sectionsObs(thirdSection,line2)
-sectionsObs(fourthSection,line3)
-sectionsObs(fifthSection,line4)
-
-
-
+);
+document.querySelectorAll("img").forEach((image) => {
+  if (!image.classList.contains("grid-images")) return;
+  imageObserver.observe(image);
+});
 
 // window.addEventListener("scroll", () => {
 //   let y = window.scrollY;
-  // if (y > firstSection.scrollHeight * 0.6) {
-  //   secondSection.classList.add("visible");
-  //   line1.classList.add("visible");
-  // }
- 
+// if (y > firstSection.scrollHeight * 0.6) {
+//   secondSection.classList.add("visible");
+//   line1.classList.add("visible");
+// }
 
-  // if (y >= firstSection.scrollHeight) {
-  //   navbar.classList.add("fixed-nav");
-  // } else {
-  //   navbar.classList.remove("fixed-nav");
-  // }
-  // if (y > firstSection.scrollHeight + secondSection.scrollHeight * 0.8) {
-  //   thirdSection.classList.add("visible");
-  //   line2.classList.add("visible");
-  // }
-  // if (
-  //   y >
-  //   firstSection.scrollHeight +
-  //     secondSection.scrollHeight +
-  //     thirdSection.scrollHeight * 0.8
-  // ) {
-  //   fourthSection.classList.add("visible");
-  //   line3.classList.add("visible");
-  // }
+// if (y >= firstSection.scrollHeight) {
+//   navbar.classList.add("fixed-nav");
+// } else {
+//   navbar.classList.remove("fixed-nav");
+// }
+// if (y > firstSection.scrollHeight + secondSection.scrollHeight * 0.8) {
+//   thirdSection.classList.add("visible");
+//   line2.classList.add("visible");
+// }
+// if (
+//   y >
+//   firstSection.scrollHeight +
+//     secondSection.scrollHeight +
+//     thirdSection.scrollHeight * 0.8
+// ) {
+//   fourthSection.classList.add("visible");
+//   line3.classList.add("visible");
+// }
 //   if (
 //     y >
 //     firstSection.scrollHeight +
@@ -126,11 +144,6 @@ sectionsObs(fifthSection,line4)
 //     line4.classList.add("visible");
 //   }
 // });
-
-
-
-
-
 
 Array.from(btns).forEach((e) => {
   e.addEventListener("click", () => {
@@ -160,12 +173,16 @@ Array.from(btns).forEach((e) => {
 });
 
 slidleft.addEventListener("click", () => {
+  
   let newPosition = parseInt(window.getComputedStyle(wrapper)["left"]) + 800;
   newPosition > 0 ? (newPosition = -1600) : newPosition;
   wrapper.style.left = `${newPosition}px`;
 });
 
 slidright.addEventListener("click", () => {
+  
+ 
+ 
   let newPosition = parseInt(window.getComputedStyle(wrapper)["left"]) - 800;
   newPosition < -1600 ? (newPosition = 0) : newPosition;
   wrapper.style.left = `${newPosition}px`;
@@ -198,12 +215,10 @@ document.addEventListener("keydown", (e) => {
 const obsOption = {
   root: null,
   threshold: 0,
-  
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
-    
     if (!entry.isIntersecting) {
       navbar.classList.add("fixed-nav");
     } else {
@@ -213,8 +228,3 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, obsOption);
 observer.observe(firstSection);
 // .isIntersecting===false &&entries.
-
-
-
-
-
